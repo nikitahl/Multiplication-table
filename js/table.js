@@ -77,9 +77,9 @@ var MultiplicationTable = function() {
 
   this.dimCells = function() {
     if ( this.highlightedCells != 0 ) {
-      for (var i = 0; i < this.highlightedCells.length; i++) {
-        this.highlightedCells[i].classList.remove('is-zone', 'is-zone-border', 'is-result', 'is-data');
-      }
+      this.highlightedCells.forEach(function(cell) {
+        cell.classList.remove('is-zone', 'is-zone-border', 'is-result', 'is-data');
+      });
     }
   }
 
@@ -89,14 +89,12 @@ var MultiplicationTable = function() {
   }
 
   this.displayResult = function(e) {
-    console.time('start');
     if ( e.target.nodeName.toLowerCase() === 'td' ) {
       var row = e.target.dataset.row,
           cell = e.target.dataset.cell;
       this.writeResult(row, cell);
       this.parseCellData(row, cell, e.target);
     }
-    console.time('start');
   }
 
   this.hideResult = function() {

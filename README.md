@@ -1,4 +1,4 @@
-# Multiplication table
+# Interactive multiplication table
 
 Inspired by some educational article on the internet.
 
